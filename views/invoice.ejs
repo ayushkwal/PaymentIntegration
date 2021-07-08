@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #pdf {
+  text-align: center;
+}
+
+#pdf canvas {
+  border: 1px solid black;
+  width: 95%;
+}
+</style>
+<script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
+
+<body>
+    <!-- <button onclick="downloadinvoice()"></button> -->
+    <div id="pdf"></div>
+    <embed src="../invoice" width="800px" height="2100px" />
+</body>
+<script>
+    function downloadinvoice(){
+        const data = {};
+easyinvoice.createInvoice(data, function (result) {
+    easyinvoice.download('myInvoice.pdf', result.pdf);
+    //  you can download like this as well:
+    //  easyinvoice.download();
+    //  easyinvoice.download('myInvoice.pdf');   
+});
+    }
+</script>
+</html>
